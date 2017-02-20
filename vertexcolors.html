@@ -208,8 +208,6 @@
 				
 				//This tells JS to rerun this loop once one animation frame has happened. This is responsible for keeping a consistent timing to the animation regardless of framerate
 				requestAnimationFrame(animate);
-				discoball.rotation.y += 0.01;
-				discoballMat.map.offset.x = (THREE.Math.radToDeg(discoball.rotation.y)/360);
 				
 				//render the scene
 				renderer.render(scene);
