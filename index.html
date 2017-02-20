@@ -1,156 +1,157 @@
-	<!DOCTYPE html>
-	<html lang='en'>
+		<!DOCTYPE html>
+		<html lang='en'>
 
-		<head>
+			<head>
 
-			<title>AltMinecraft</title>
-			<script src="http://livejs.com/live.js"></script>
-			<script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-			<script src="./assets/aframe-component-beta.js"></script>
-			<script src="./assets/altspace.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-			<script src="https://cdn.rawgit.com/norybiak/UltimateLoader/v0.3.0/dist/UltimateLoader.js"></script>
+				<title>AltMinecraft</title>
+				<script src="http://livejs.com/live.js"></script>
+				<script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+				<script src="./assets/aframe-component-beta.js"></script>
+				<script src="./assets/altspace.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+				<script src="https://cdn.rawgit.com/norybiak/UltimateLoader/v0.3.0/dist/UltimateLoader.js"></script>
 
-		</head>
+			</head>
 
-		<body>
+			<body>
 
-			<a-scene altspace='fullspace: true'>
+				<a-scene altspace='fullspace: true'>
 
-				<a-assets timeout="30000">
-					<!--<a-asset-item id="mcroom" src="./assets/mcroom.dae"></a-asset-item>-->
-					<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
-				</a-assets>
+					<a-assets timeout="30000">
+						<!--<a-asset-item id="mcroom" src="./assets/mcroom.dae"></a-asset-item>-->
+						<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
+					</a-assets>
 
-				<!--<a-entity position="0 -2 18" collada-model="#mcroom" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false"></a-entity>-->
-				<a-entity position="0 -2 18" obj-model="obj: #collision-obj;" scale="1.05 1.05 1.05" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
+					<!--<a-entity position="0 -2 18" collada-model="#mcroom" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false"></a-entity>-->
+					<a-entity position="0 -2 18" obj-model="obj: #collision-obj;" scale="1.05 1.05 1.05" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
 
-			</a-scene>
+				</a-scene>
 
-			<script>
+				<script>
 
-			var sim = altspace.utilities.Simulation();
+				var sim = altspace.utilities.Simulation();
 
-				var modelBaseUrl = 'assets/';
+					var modelBaseUrl = 'assets/';
 
-				//3D Models to load.
-				var  models =
-				[
-					{ name: 'world6_0', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-					{ name: 'world6_1', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-					{ name: 'world6_2', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-					{ name: 'world6_3', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-					{ name: 'world6_4', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+					//3D Models to load.
+					var  models =
+					[
+						{ name: 'world6_0', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+						{ name: 'world6_1', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+						{ name: 'world6_2', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+						{ name: 'world6_3', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+						{ name: 'world6_4', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 
-				];
+					];
 
-				//Once the whole script has been read by altspace, do the model loader stuff
-				function onLoaded() {
-					for (var i = 0; i < models.length; i++)
-					{
-	                    var obj = models[i].object;
-	                    var name = models[i].name;
-	                    var spawnPosition = new THREE.Vector3();
-
-	                    spawnPosition.copy(models[i].position);
-	                    //spawnPosition.multiplyScalar(masterScale);
-	                    obj.position.copy(spawnPosition);//initial position
-	                    //obj.scale.set(masterScale, masterScale, masterScale);
-						
-						obj.traverse( function(child) { 
-							if (child instanceof THREE.Mesh) {
-								child.userData.altspace = {
-									collider: {
-										enabled: false
-									}
-								};
-							} else if (child instanceof THREE.Material) {
-								if(name == "world6_4"){
-								child.transparent = true;
-								child.needsUpdate = true;
-							} else {
-								child.transparent = false;
-								child.needsUpdate = true;
-							}
-							}
-						});
-							//obj.rotation.y = THREE.Math.degToRad(90);
-						obj.position.set(-1, -2, 18);
-						obj.scale.setScalar(1.05);
-							
-						sim.scene.add(obj);
-						console.log(obj);
-						
-	                }
-	            }
-
-	            // Build ultimateloader array
-						var objectUrls = new Array(models.length);
+					//Once the whole script has been read by altspace, do the model loader stuff
+					function onLoaded() {
 						for (var i = 0; i < models.length; i++)
 						{
-							objectUrls[i] = modelBaseUrl + models[i].name + models[i].type;
-						}
+		                    var obj = models[i].object;
+		                    var name = models[i].name;
+		                    var spawnPosition = new THREE.Vector3();
 
-						// Use Kai's awesome UltimateLoader to load models
-						UltimateLoader.multiload(objectUrls, function(objects)
-						{
-							for (var i = 0; i < objects.length; i++)
-							{
-								models[i].object = objects[i];
-							}
-
-							onLoaded();
-						});
-
-
-				/*var room = document.querySelector('#mcroom-a');
-				//When model is loaded, set transparent to true for certain meshes
-				room.addEventListener('model-loaded', function() {
-					console.log(this.object3D);
-					for (var i = 0; i < this.object3D.children[0].children.length; i++) {
-						var meshy = this.object3D.children[0].children[i];
-						if (meshy.name != undefined && (meshy.name.indexOf("Glass") !== -1 || meshy.name.indexOf("Leaves_(Acacia/Dark_Oak)") !== -1 || meshy.name.indexOf("Poppy") !== -1 || meshy.name.indexOf("Stationary_Water") !== -1 || meshy.name.indexOf("Torch") !== -1 || meshy.name.indexOf("Vines") !== -1)) {
-							var top = meshy.children[0];
-							top.material.transparent = true;
-							top.material.side = THREE.DoubleSide;
-							top.material.needsUpdate = true;
-						}
-					}
-				});*/
-
-				//Hide collision mesh
-				var collision = document.querySelector('#collision-a');
-				collision.addEventListener('model-loaded', function() {
-					for (var i = 0; i < this.object3D.children[0].children.length; i++) {
-						var top = this.object3D.children[0].children[i];
-						top.material.visible = false;
-						top.material.needsUpdate = true;
-						top.needsUpdate = true;
-					}
-				});
-
-				//Check for GitHub pushes
-				var lastupdate = "";
-
-				setInterval(function(e) {
-					$.ajax({
-						type: "GET",
-						url: "http://minecraft.jacobralph.org/lastupdate.txt",
-						async: true,
-						success: function(text) {
-							if (!lastupdate) {
-								lastupdate = text;
-							} else {
-								if (lastupdate != text) {
-									location.reload(true);
+		                    spawnPosition.copy(models[i].position);
+		                    //spawnPosition.multiplyScalar(masterScale);
+		                    obj.position.copy(spawnPosition);//initial position
+		                    //obj.scale.set(masterScale, masterScale, masterScale);
+							
+							obj.traverse( function(child) { 
+								if (child instanceof THREE.Mesh) {
+									child.userData.altspace = {
+										collider: {
+											enabled: false
+										}
+									};
+								} else if (child instanceof THREE.Material) {
+									if(name == "world6_4"){
+										console.log("Transparent set");
+									    child.transparent = true;
+									    child.needsUpdate = true;
+								    } else {
+									    child.transparent = false;
+										child.needsUpdate = true;
+									}
 								}
+							});
+								//obj.rotation.y = THREE.Math.degToRad(90);
+							obj.position.set(-1, -2, 18);
+							obj.scale.setScalar(1.05);
+								
+							sim.scene.add(obj);
+							console.log(obj);
+							
+		                }
+		            }
+
+		            // Build ultimateloader array
+							var objectUrls = new Array(models.length);
+							for (var i = 0; i < models.length; i++)
+							{
+								objectUrls[i] = modelBaseUrl + models[i].name + models[i].type;
 							}
+
+							// Use Kai's awesome UltimateLoader to load models
+							UltimateLoader.multiload(objectUrls, function(objects)
+							{
+								for (var i = 0; i < objects.length; i++)
+								{
+									models[i].object = objects[i];
+								}
+
+								onLoaded();
+							});
+
+
+					/*var room = document.querySelector('#mcroom-a');
+					//When model is loaded, set transparent to true for certain meshes
+					room.addEventListener('model-loaded', function() {
+						console.log(this.object3D);
+						for (var i = 0; i < this.object3D.children[0].children.length; i++) {
+							var meshy = this.object3D.children[0].children[i];
+							if (meshy.name != undefined && (meshy.name.indexOf("Glass") !== -1 || meshy.name.indexOf("Leaves_(Acacia/Dark_Oak)") !== -1 || meshy.name.indexOf("Poppy") !== -1 || meshy.name.indexOf("Stationary_Water") !== -1 || meshy.name.indexOf("Torch") !== -1 || meshy.name.indexOf("Vines") !== -1)) {
+								var top = meshy.children[0];
+								top.material.transparent = true;
+								top.material.side = THREE.DoubleSide;
+								top.material.needsUpdate = true;
+							}
+						}
+					});*/
+
+					//Hide collision mesh
+					var collision = document.querySelector('#collision-a');
+					collision.addEventListener('model-loaded', function() {
+						for (var i = 0; i < this.object3D.children[0].children.length; i++) {
+							var top = this.object3D.children[0].children[i];
+							top.material.visible = false;
+							top.material.needsUpdate = true;
+							top.needsUpdate = true;
 						}
 					});
-				}, 5000);
 
-			</script>
+					//Check for GitHub pushes
+					var lastupdate = "";
 
-		</body>
+					setInterval(function(e) {
+						$.ajax({
+							type: "GET",
+							url: "http://minecraft.jacobralph.org/lastupdate.txt",
+							async: true,
+							success: function(text) {
+								if (!lastupdate) {
+									lastupdate = text;
+								} else {
+									if (lastupdate != text) {
+										location.reload(true);
+									}
+								}
+							}
+						});
+					}, 5000);
 
-	</html>
+				</script>
+
+			</body>
+
+		</html>
