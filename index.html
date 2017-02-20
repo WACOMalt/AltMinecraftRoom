@@ -53,9 +53,7 @@
 		                    var spawnPosition = new THREE.Vector3();
 
 		                    spawnPosition.copy(models[i].position);
-		                    //spawnPosition.multiplyScalar(masterScale);
 		                    obj.position.copy(spawnPosition);//initial position
-		                    //obj.scale.set(masterScale, masterScale, masterScale);
 							
 							obj.traverse( function(child) { 
 								if (child instanceof THREE.Mesh) {
@@ -75,7 +73,7 @@
 									}
 								}
 							});
-								//obj.rotation.y = THREE.Math.degToRad(90);
+						    obj.rotation.y = THREE.Math.degToRad(180);
 							obj.position.set(-1, -2, 18);
 							obj.scale.setScalar(1.05);
 								
@@ -86,38 +84,22 @@
 		            }
 
 		            // Build ultimateloader array
-							var objectUrls = new Array(models.length);
-							for (var i = 0; i < models.length; i++)
-							{
-								objectUrls[i] = modelBaseUrl + models[i].name + models[i].type;
-							}
+					var objectUrls = new Array(models.length);
+					for (var i = 0; i < models.length; i++)
+					{
+						objectUrls[i] = modelBaseUrl + models[i].name + models[i].type;
+					}
 
-							// Use Kai's awesome UltimateLoader to load models
-							UltimateLoader.multiload(objectUrls, function(objects)
-							{
-								for (var i = 0; i < objects.length; i++)
-								{
-									models[i].object = objects[i];
-								}
-
-								onLoaded();
-							});
-
-
-					/*var room = document.querySelector('#mcroom-a');
-					//When model is loaded, set transparent to true for certain meshes
-					room.addEventListener('model-loaded', function() {
-						console.log(this.object3D);
-						for (var i = 0; i < this.object3D.children[0].children.length; i++) {
-							var meshy = this.object3D.children[0].children[i];
-							if (meshy.name != undefined && (meshy.name.indexOf("Glass") !== -1 || meshy.name.indexOf("Leaves_(Acacia/Dark_Oak)") !== -1 || meshy.name.indexOf("Poppy") !== -1 || meshy.name.indexOf("Stationary_Water") !== -1 || meshy.name.indexOf("Torch") !== -1 || meshy.name.indexOf("Vines") !== -1)) {
-								var top = meshy.children[0];
-								top.material.transparent = true;
-								top.material.side = THREE.DoubleSide;
-								top.material.needsUpdate = true;
-							}
+					// Use Kai's awesome UltimateLoader to load models
+					UltimateLoader.multiload(objectUrls, function(objects)
+					{
+						for (var i = 0; i < objects.length; i++)
+						{
+							models[i].object = objects[i];
 						}
-					});*/
+
+						onLoaded();
+					});
 
 					//Hide collision mesh
 					var collision = document.querySelector('#collision-a');
