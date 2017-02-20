@@ -9,7 +9,6 @@
 		<script src="./assets/aframe-component-beta.js"></script>
 		<script src="./assets/altspace.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://cdn.rawgit.com/Ooblik/AltspaceVR-Native-Components-JS/master/js/JSNativeComponents.js"></script>
 		<script src="https://cdn.rawgit.com/norybiak/UltimateLoader/v0.3.0/dist/UltimateLoader.js"></script>
 
 	</head>
@@ -39,7 +38,6 @@
 			var world6_1;
 			var world6_2;
 			var world6_3;
-			var meshCollider;
 
 			//3D Models to load.
 			var  models =
@@ -76,7 +74,6 @@
 						
 						sim.scene.add(obj);
 						console.log(obj);
-						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
 					if (name === 'world6_1') {
@@ -88,7 +85,6 @@
 						
 						sim.scene.add(obj);
 						console.log(obj);
-						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
 					if (name === 'world6_2') {
@@ -100,7 +96,6 @@
 						
 						sim.scene.add(obj);
 						console.log(obj);
-						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
 					if (name === 'world6_3') {
@@ -112,7 +107,6 @@
 						
 						sim.scene.add(obj);
 						console.log(obj);
-						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
 					}
 					
                 }
