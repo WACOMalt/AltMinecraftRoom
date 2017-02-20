@@ -9,6 +9,7 @@
 		<script src="./assets/aframe-component-beta.js"></script>
 		<script src="./assets/altspace.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="http://xirvr.com/aframe-gltf/demo/aframe-gltf.js"></script>
 
 	</head>
 
@@ -17,30 +18,38 @@
 		<a-scene altspace='fullspace: true'>
 
 			<a-assets timeout="30000">
-				<a-asset-item id="mcroom" src="./assets/mcroom.dae"></a-asset-item>
+				<!--<a-asset-item id="mcroom" src="./assets/mcroom.dae"></a-asset-item>-->
 				<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
+				<a-asset-item id="room1" src="world6_0.gltf">
+				<a-asset-item id="room2" src="world6_1.gltf">
+				<a-asset-item id="room3" src="world6_2.gltf">
+				<a-asset-item id="room4" src="world6_3.gltf">
 			</a-assets>
 
-			<a-entity position="0 -2 18" collada-model="#mcroom" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false"></a-entity>
+			<!--<a-entity position="0 -2 18" collada-model="#mcroom" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false"></a-entity>-->
+			<a-entity position="19 -2 0" id="gltf" gltf-model="asset: #room1;" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false">
+			<a-entity position="19 -2 0" id="gltf" gltf-model="asset: #room2;" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false">
+			<a-entity position="19 -2 0" id="gltf" gltf-model="asset: #room3;" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false">
+			<a-entity position="19 -2 0" id="gltf" gltf-model="asset: #room4;" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false">
 			<a-entity position="0 -2 18" obj-model="obj: #collision-obj;" scale="1.05 1.05 1.05" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
 
 		</a-scene>
 
 		<script>
 
-			var room = document.querySelector('#mcroom-a');
+			/*var room = document.querySelector('#mcroom-a');
 			//When model is loaded, set transparent to true for certain meshes
 			room.addEventListener('model-loaded', function() {
 				for (var i = 0; i < this.object3D.children[0].children.length; i++) {
 					var meshy = this.object3D.children[0].children[i];
-					if (meshy.name != undefined && (meshy.name.indexOf("Glass") !== -1 || /*meshy.name.indexOf("Leaves") !== -1 ||*/ meshy.name.indexOf("Leaves_(Acacia/Dark_Oak)") !== -1 || meshy.name.indexOf("Poppy") !== -1 || meshy.name.indexOf("Stationary_Water") !== -1 || meshy.name.indexOf("Torch") !== -1 || meshy.name.indexOf("Vines") !== -1)) {
+					if (meshy.name != undefined && (meshy.name.indexOf("Glass") !== -1 || meshy.name.indexOf("Leaves_(Acacia/Dark_Oak)") !== -1 || meshy.name.indexOf("Poppy") !== -1 || meshy.name.indexOf("Stationary_Water") !== -1 || meshy.name.indexOf("Torch") !== -1 || meshy.name.indexOf("Vines") !== -1)) {
 						var top = meshy.children[0];
 						top.material.transparent = true;
 						top.material.side = THREE.DoubleSide;
 						top.material.needsUpdate = true;
 					}
 				}
-			});
+			});*/
 
 			//Hide collision mesh
 			var collision = document.querySelector('#collision-a');
