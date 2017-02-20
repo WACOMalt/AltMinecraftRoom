@@ -9,7 +9,8 @@
 		<script src="./assets/aframe-component-beta.js"></script>
 		<script src="./assets/altspace.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="http://xirvr.com/aframe-gltf/demo/aframe-gltf.js"></script>
+		<script src="https://cdn.rawgit.com/Ooblik/AltspaceVR-Native-Components-JS/master/js/JSNativeComponents.js"></script>
+		<script src="https://cdn.rawgit.com/norybiak/UltimateLoader/v0.3.0/dist/UltimateLoader.js"></script>
 
 	</head>
 
@@ -20,22 +21,121 @@
 			<a-assets timeout="30000">
 				<!--<a-asset-item id="mcroom" src="./assets/mcroom.dae"></a-asset-item>-->
 				<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
-				<a-asset-item id="room1" src="world6_0.gltf">
-				<a-asset-item id="room2" src="world6_1.gltf">
-				<a-asset-item id="room3" src="world6_2.gltf">
-				<a-asset-item id="room4" src="world6_3.gltf">
 			</a-assets>
 
 			<!--<a-entity position="0 -2 18" collada-model="#mcroom" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false"></a-entity>-->
-			<a-entity position="0 -2 18" id="gltf" gltf-model="asset: #room1;" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false">
-			<a-entity position="0 -2 18" id="gltf" gltf-model="asset: #room2;" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false">
-			<a-entity position="0 -2 18" id="gltf" gltf-model="asset: #room3;" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false">
-			<a-entity position="0 -2 18" id="gltf" gltf-model="asset: #room4;" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false">
 			<a-entity position="0 -2 18" obj-model="obj: #collision-obj;" scale="1.05 1.05 1.05" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
 
 		</a-scene>
 
 		<script>
+
+		var sim = altspace.utilities.Simulation();
+
+		
+			var modelBaseUrl = 'assets/';
+			var animationInc = 0;
+			var world6_0;
+			var world6_1;
+			var world6_2;
+			var world6_3;
+			var meshCollider;
+
+			//3D Models to load.
+			var  models =
+			[
+				{ name: 'world6_0', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'world6_1', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'world6_2', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+				{ name: 'world6_3', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+
+			];
+
+			//Once the whole script has been read by altspace, do the model loader stuff
+			function onLoaded() {
+				for (var i = 0; i < models.length; i++)
+				{
+                    var obj = models[i].object;
+                    var name = models[i].name;
+                    var spawnPosition = new THREE.Vector3();
+
+                    spawnPosition.copy(models[i].position);
+                    //spawnPosition.multiplyScalar(masterScale);
+                    obj.position.copy(spawnPosition);//initial position
+                    //obj.scale.set(masterScale, masterScale, masterScale);
+
+					//add the meshes to the scene
+					sim.scene.add(obj);
+					
+					if (name === 'world6_0') {
+						obj.traverse( function(child) { if (child instanceof THREE.Mesh) {child.userData.altspace = {collider: {enabled: false}};}})
+						obj.rotation.y = THREE.Math.degToRad(180);
+						obj.position.set(19, -2, 0);
+						obj.scale.setScalar(1.2);
+						world6_0 = obj;
+						
+						sim.scene.add(obj);
+						console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'world6_1') {
+						obj.traverse( function(child) { if (child instanceof THREE.Mesh) {child.userData.altspace = {collider: {enabled: false}};}})
+						obj.rotation.y = THREE.Math.degToRad(180);
+						obj.position.set(19, -2, 0);
+						obj.scale.setScalar(1.2);
+						world6_1 = obj;
+						
+						sim.scene.add(obj);
+						console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'world6_2') {
+						obj.traverse( function(child) { if (child instanceof THREE.Mesh) {child.userData.altspace = {collider: {enabled: false}};}})
+						obj.rotation.y = THREE.Math.degToRad(180);
+						obj.position.set(19, -2, 0);
+						obj.scale.setScalar(1.2);
+						world6_2 = obj;
+						
+						sim.scene.add(obj);
+						console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+					if (name === 'world6_3') {
+						obj.traverse( function(child) { if (child instanceof THREE.Mesh) {child.userData.altspace = {collider: {enabled: false}};}})
+						obj.rotation.y = THREE.Math.degToRad(180);
+						obj.position.set(19, -2, 0);
+						obj.scale.setScalar(1.2);
+						world6_3 = obj;
+						
+						sim.scene.add(obj);
+						console.log(obj);
+						meshCollider = new NativeComponent('n-mesh-collider', {convex: false}, obj);
+					}
+					
+                }
+            }
+
+            // Build ultimateloader array
+					var objectUrls = new Array(models.length);
+					for (var i = 0; i < models.length; i++)
+					{
+						objectUrls[i] = modelBaseUrl + models[i].name + models[i].type;
+					}
+
+					// Use Kai's awesome UltimateLoader to load models
+					UltimateLoader.multiload(objectUrls, function(objects)
+					{
+						for (var i = 0; i < objects.length; i++)
+						{
+							models[i].object = objects[i];
+						}
+
+						onLoaded();
+					});
+
 
 			/*var room = document.querySelector('#mcroom-a');
 			//When model is loaded, set transparent to true for certain meshes
