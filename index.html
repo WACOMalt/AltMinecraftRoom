@@ -41,7 +41,7 @@
 						{ name: 'world6_2', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 						{ name: 'world6_3', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 						{ name: 'world6_4', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-						//{ name: 'world6_5', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+						{ name: 'world6_5', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 
 					];
 
@@ -64,7 +64,7 @@
 										}
 									};
 								} else if (child instanceof THREE.Material) {
-									if(name == "world6_4" /*|| name == "world6_5"*/){
+									if(name == "world6_4" || name == "world6_5"){
 									    child.transparent = true;
 									    child.needsUpdate = true;
 								    } else {
