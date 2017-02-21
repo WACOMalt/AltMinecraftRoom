@@ -154,7 +154,7 @@
                             1.0
                         ],
                         "transparency": 1.0,
-                        "transparent": true
+                        "transparent": false
                     }
                 }
             },
