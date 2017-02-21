@@ -127,7 +127,7 @@
         }
     },
     "materials": {
-        "material_lambert3": {
+        "material_lambert3.003": {
             "extensions": {
                 "KHR_materials_common": {
                     "technique": "LAMBERT",
@@ -154,11 +154,11 @@
                             1.0
                         ],
                         "transparency": 1.0,
-                        "transparent": false
+                        "transparent": true
                     }
                 }
             },
-            "name": "lambert3"
+            "name": "lambert3.003"
         }
     },
     "meshes": {
@@ -173,7 +173,7 @@
                         "TEXCOORD_0": "accessor_buffer_Untitled.008_2"
                     },
                     "indices": "accessor_buffer_Untitled.008_4",
-                    "material": "material_lambert3",
+                    "material": "material_lambert3.003",
                     "mode": 4
                 }
             ]
