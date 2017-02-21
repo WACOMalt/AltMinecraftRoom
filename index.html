@@ -19,11 +19,11 @@
 
 					<a-assets timeout="30000">
 						<!--<a-asset-item id="mcroom" src="./assets/mcroom.dae"></a-asset-item>-->
-						<!--<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>-->
+						<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
 					</a-assets>
 
 					<!--<a-entity position="0 -2 18" collada-model="#mcroom" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false"></a-entity>-->
-					<!--<a-entity position="0 -2 -18" obj-model="obj: #collision-obj;" scale="1.05 1.05 1.05" rotation="0 180 0" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>-->
+					<a-entity position="0 -2 -18" obj-model="obj: #collision-obj;" scale="1.05 1.05 1.05" rotation="0 180 0" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
 
 				</a-scene>
 
@@ -41,7 +41,6 @@
 						{ name: 'world6_2', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 						{ name: 'world6_3', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 						{ name: 'world6_4', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-						{ name: 'collision', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 
 					];
 
@@ -65,18 +64,15 @@
 									};
 								} else if (child instanceof THREE.Material) {
 									if(name == "world6_4"){
+										console.log("Transparent set");
 									    child.transparent = true;
 									    child.needsUpdate = true;
-								    } else if(name == "collision"){
-								    	child.visible = false;
-										child.needsUpdate = true;
 								    } else {
 									    child.transparent = false;
 										child.needsUpdate = true;
 									}
 								}
 							});
-
 						    obj.rotation.y = THREE.Math.degToRad(180);
 							obj.position.set(1, -2, -18);
 							obj.scale.setScalar(1.05);
@@ -103,6 +99,16 @@
 						}
 
 						onLoaded();
+					});
+
+					//Hide collision mesh
+					var collision = document.querySelector('#collision-a');
+					collision.addEventListener('model-loaded', function() {
+						for (var i = 0; i < this.object3D.children[0].children.length; i++) {
+							var top = this.object3D.children[0].children[i];
+							top.material.visible = false;
+							top.material.needsUpdate = true;
+						}
 					});
 
 					//Check for GitHub pushes
