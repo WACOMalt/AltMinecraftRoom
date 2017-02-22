@@ -18,11 +18,9 @@
 				<a-scene altspace='fullspace: true'>
 
 					<a-assets timeout="30000">
-						<!--<a-asset-item id="mcroom" src="./assets/mcroom.dae"></a-asset-item>-->
 						<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
 					</a-assets>
 
-					<!--<a-entity position="0 -2 18" collada-model="#mcroom" scale="1.05 1.05 1.05" id="mcroom-a" transparent=true altspace-cursor-collider="enabled: false"></a-entity>-->
 					<a-entity position="0 -2 -18" obj-model="obj: #collision-obj;" scale="1.05 1.05 1.05" rotation="0 180 0" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
 
 				</a-scene>
@@ -41,8 +39,8 @@
 						{ name: 'world6_2', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 						{ name: 'world6_3', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
 						{ name: 'world6_4', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
-						{ name: 'world6_5', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
-
+						{ name: 'world6_5', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } },
+						{ name: 'world6_6', type: '.gltf', position: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0 } }
 					];
 
 					//Once the whole script has been read by altspace, do the model loader stuff
@@ -73,13 +71,11 @@
 									}
 								}
 							});
+							
 						    obj.rotation.y = THREE.Math.degToRad(180);
 							obj.position.set(1, -2, -18);
 							obj.scale.setScalar(1.05);
-								
 							sim.scene.add(obj);
-							console.log(obj);
-							
 		                }
 		            }
 
