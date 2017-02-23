@@ -19,12 +19,9 @@
 
 					<a-assets timeout="30000">
 						<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
-						<a-asset-item id="allium-obj" src="./assets/flowers/allium.obj"></a-asset-item>
-						<a-asset-item id="allium-mtl" src="./assets/flowers/allium.mtl"></a-asset-item>
 					</a-assets>
 
 					<a-entity position="0 -2 -18" obj-model="obj: #collision-obj;" scale="1 1 1" rotation="0 180 0" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
-					<a-entity position="0 0 0" obj-model="obj: #allium-obj; mtl: #allium-mtl;" scale="1 1 1" rotation="0 0 0" id="allium-a" altspace-cursor-collider="enabled: false"></a-entity>
 
 				</a-scene>
 
