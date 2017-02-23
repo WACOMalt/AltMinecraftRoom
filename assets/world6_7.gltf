@@ -1,0 +1,219 @@
+{
+    "accessors": {
+        "accessor_buffer_Plane.002_0": {
+            "bufferView": "bufferView_buffer_Plane.002_0",
+            "byteOffset": 0,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 22,
+            "max": [
+                1.6698670387268066,
+                8.333209991455078,
+                0
+            ],
+            "min": [
+                -2.226598024368286,
+                0.0009089999948628247,
+                -9.999999974752427e-07
+            ],
+            "type": "VEC3"
+        },
+        "accessor_buffer_Plane.002_1": {
+            "bufferView": "bufferView_buffer_Plane.002_0",
+            "byteOffset": 264,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 22,
+            "max": [
+                9.075316711459891e-07,
+                0,
+                1.0
+            ],
+            "min": [
+                -1.657891743889195e-07,
+                -1.7999842611970962e-06,
+                0.9999999403953552
+            ],
+            "type": "VEC3"
+        },
+        "accessor_buffer_Plane.002_2": {
+            "bufferView": "bufferView_buffer_Plane.002_0",
+            "byteOffset": 528,
+            "byteStride": 8,
+            "componentType": 5126,
+            "count": 22,
+            "max": [
+                0.6671000123023987,
+                0.9998000000050524
+            ],
+            "min": [
+                0.27720001339912415,
+                0.16600000858306885
+            ],
+            "type": "VEC2"
+        },
+        "accessor_buffer_Plane.002_3": {
+            "bufferView": "bufferView_buffer_Plane.002_1",
+            "byteOffset": 0,
+            "byteStride": 2,
+            "componentType": 5123,
+            "count": 60,
+            "max": [
+                21
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        }
+    },
+    "asset": {
+        "profile": {
+            "api": "WebGL",
+            "version": "1.0.3"
+        },
+        "version": "1.0"
+    },
+    "bufferViews": {
+        "bufferView_buffer_Plane.002_0": {
+            "buffer": "buffer_combined",
+            "byteLength": 704,
+            "byteOffset": 0,
+            "target": 34962
+        },
+        "bufferView_buffer_Plane.002_1": {
+            "buffer": "buffer_combined",
+            "byteLength": 120,
+            "byteOffset": 704,
+            "target": 34963
+        }
+    },
+    "buffers": {
+        "buffer_combined": {
+            "byteLength": 824,
+            "type": "arraybuffer",
+            "uri": "data:text/plain;base64,NL7VP+wF50AAAACALCvVv9iLw0AAAACAjYAOwJuQw0AAAACAOxjVv2vV+EAAAACA4ZcOP8vX+EAAAACAq7TVP/WSw0AAAACAUG2OP/nY+EAAAACAXmgOP3BSBUEAAACAPSvVv1UI50AAAACA9nuOv8vX+EAAAACAZXKOvwj0n0C9N4a1ahPVv7HEsUC9N4a1iXuOPzSOw0AAAACAXoWOvyDBsUC9N4a1JZQ+utTyn0C9N4a1lYAOwPUF50AAAACAPlqOP3jwn0C9N4a1JZQ+uvVJbjq9N4a1NneOv9RUBUEAAACAEXKOP1EI50AAAACANCwOv9Tyn0C9N4a1NCwOv/VJbjq9N4a1AAAAAAAAAAAAAIA/Gp1zNYceoLQAAIA/AAAAAAAAAAD//38/AAAAAAAAAAAAAIA/erm2s2cI+7MAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/lZarNMJVUbQAAIA/dpehMyNRcbQAAIA/AAAAAAAAAAAAAIA/KGXDsP2W8bUAAIA/yAMytB7QjLQAAIA/w43dM6opB7UAAIA/1jYBtKCE0bQAAIA/AAAAAAAAAAAAAIA/oZl/r08ucbUAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/EccqP3oUjj5Mpqo+XtzGPintjT5e3MY+aLOqPowfYz5bQg4/jB9jPhHHKj9Cz8Y+KH4cP1QFYz5bQg4/IBYqPkymqj5gB44+lPbGPowfYz6U9sY+rtj/Pmizqj74U+M+toQcP17cxj6U9sY+FGHjPuXy/z6u2P8+Ke2NPnoUjj4ofhw/yuX/PuXy/z7l8n8/lPbGPuj7KT4ofhw/YAeOPmaI4z6u2P8+ZojjPuXyfz8NAAQACQARABQAFQAUAA0ACgANAAEACwABAAgAAgAIAAkAAwACAAgADwAUAA4ADQAOABQAEQAMAA4AEAAAABMABQAEABMABgATAAwABQAMAA0ADgANAAgAAQAJAAcAEgANAAkACAATAAQADAAJAAQABwAEAA0ADAA="
+        }
+    },
+    "extensions": {
+        "KHR_materials_common": {
+            "lights": {}
+        }
+    },
+    "extensionsUsed": [
+        "KHR_materials_common"
+    ],
+    "images": {
+        "image_allium.png.002": {
+            "uri": "allium.png"
+        }
+    },
+    "materials": {
+        "material_None.002": {
+            "extensions": {
+                "KHR_materials_common": {
+                    "technique": "PHONG",
+                    "values": {
+                        "ambient": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "diffuse": "texture_Kd.002",
+                        "doubleSided": false,
+                        "emission": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "shininess": 50,
+                        "specular": [
+                            0.5,
+                            0.5,
+                            0.5,
+                            1.0
+                        ],
+                        "transparency": 1.0,
+                        "transparent": false
+                    }
+                }
+            },
+            "name": "None.002"
+        }
+    },
+    "meshes": {
+        "mesh_Plane.002": {
+            "name": "Plane.002",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_buffer_Plane.002_1",
+                        "POSITION": "accessor_buffer_Plane.002_0",
+                        "TEXCOORD_0": "accessor_buffer_Plane.002_2"
+                    },
+                    "indices": "accessor_buffer_Plane.002_3",
+                    "material": "material_None.002",
+                    "mode": 4
+                }
+            ]
+        }
+    },
+    "nodes": {
+        "node_Plane.002": {
+            "children": [],
+            "matrix": [
+                0.10000000149011612,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -1.6292068139023286e-08,
+                0.10000000149011612,
+                0.0,
+                0.0,
+                -0.10000000149011612,
+                -1.6292068139023286e-08,
+                0.0,
+                14.0,
+                0.0,
+                4.0,
+                1.0
+            ],
+            "meshes": [
+                "mesh_Plane.002"
+            ],
+            "name": "Plane.002"
+        }
+    },
+    "samplers": {
+        "sampler_default": {}
+    },
+    "scene": "scene_Scene",
+    "scenes": {
+        "scene_Scene": {
+            "extras": {
+                "active_camera": "camera_Camera",
+                "background_color": [
+                    40.5,
+                    40.5,
+                    40.5
+                ],
+                "frames_per_second": 24
+            },
+            "name": "Scene",
+            "nodes": [
+                "node_Plane.002"
+            ]
+        }
+    },
+    "textures": {
+        "texture_Kd.002": {
+            "format": 6408,
+            "internalFormat": 6408,
+            "sampler": "sampler_default",
+            "source": "image_allium.png.002"
+        }
+    }
+}
