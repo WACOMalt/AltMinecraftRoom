@@ -204,6 +204,30 @@
                 "mesh_Untitled.090"
             ],
             "name": "lights.057"
+        },
+        "node_scene_Scene_root": {
+            "children": [
+                "node_lights.057"
+            ],
+            "matrix": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "name": "node_scene_Scene_root"
         }
     },
     "samplers": {
@@ -223,7 +247,7 @@
             },
             "name": "Scene",
             "nodes": [
-                "node_lights.057"
+                "node_scene_Scene_root"
             ]
         }
     },
