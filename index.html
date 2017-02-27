@@ -31,11 +31,13 @@
 
 					<a-assets timeout="30000">
 						<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
-						<a-asset-item id="sword" src="./assets/sword.dae"></a-asset-item>
+						<a-asset-item id="sword-obj" src="./assets/poop.obj"></a-asset-item>
+						<a-asset-item id="sword-mtl" src="./assets/poop.mtl"></a-asset-item>
 
-				<a-mixin id="voxel-sword"
-					collada-model="#sword" collapse-model
+					<a-mixin id="voxel-sword"
+					obj-model="obj: #poop-obj; mtl: #poop-mtl" collapse-model
 					scale="1 1 1"></a-mixin>
+
 				<a-mixin id="parent-to-right-hand"
 					position="0 0 0"
 					rotation="0 0 0"
