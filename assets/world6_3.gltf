@@ -138,7 +138,7 @@
                             1.0,
                             1.0
                         ],
-                        "diffuse": "texture_file2",
+                        "diffuse": "texture_file2.001",
                         "doubleSided": false,
                         "emission": [
                             0.0,
@@ -252,7 +252,7 @@
         }
     },
     "textures": {
-        "texture_file2": {
+        "texture_file2.001": {
             "format": 6408,
             "internalFormat": 6408,
             "sampler": "sampler_default",
