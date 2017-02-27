@@ -32,11 +32,12 @@
 					<a-assets timeout="30000">
 						<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
 
-				<a-asset-item id="axe" src="assets/vaxe.dae"></a-asset-item>
+				<a-asset-item id="sword-obj" src="assets/SwordMinecraft.obj"></a-asset-item>
+				<a-asset-item id="sword-mtl" src="assets/SwordMinecraft.mtl"></a-asset-item>
 
 				<a-mixin id="voxel-axe"
-					collada-model="#axe" collapse-model
-					scale="0.01 0.01 0.01"></a-mixin>
+					obj-model="obj: #sword-obj; mtl: #sword-mtl" collapse-model
+					scale="0.1 0.1 0.1"></a-mixin>
 				<a-mixin id="parent-to-right-hand"
 					position="0 0 0"
 					rotation="0 0 0"
