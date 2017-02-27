@@ -10,6 +10,19 @@
 				<script src="./assets/altspace.js"></script>
 				<script src="./assets/jquery.min.js"></script>
 				<script src="./assets/UltimateLoader.js"></script>
+				<script>
+			// n-skeleton-parent only works with root meshes at the moment. Since most model loaders use a root
+			// container object, we need to collapse the model so that n-skeleton-parent can access the mesh directly.
+			AFRAME.registerComponent('collapse-model', {
+				init: function () {
+					this.el.addEventListener('model-loaded', function () {
+						this.el.setObject3D('mesh', this.el.object3DMap.mesh.children[0]);
+						// setObject3D emits this event in a-frame 0.4.0
+						this.el.emit('object3dset', {type: 'mesh'});
+					}.bind(this));
+				}
+			});
+		</script>
 			</head>
 
 			<body>
@@ -18,12 +31,28 @@
 
 					<a-assets timeout="30000">
 						<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
+						<a-asset-item id="sword" src="./assets/sword.dae"></a-asset-item>
+
+				<a-mixin id="voxel-sword"
+					collada-model=#sword" collapse-model
+					scale="1 1 1"></a-mixin>
+				<a-mixin id="parent-to-right-hand"
+					position="0 0 0"
+					rotation="0 0 0"
+					n-skeleton-parent="part: hand; side: right;"
+					sync sync-n-skeleton-parent></a-mixin>
 					</a-assets>
 
 					<a-entity position="0 -2 -18" obj-model="obj: #collision-obj;" scale="1 1 1" rotation="0 180 0" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
 					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 0; autoplay: true; loop: true;"></a-entity>
 					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 0; autoplay: true; loop: true;"></a-entity>
 
+					<a-entity
+				id="voxel-sword-instantiator"
+				mixin="voxel-sword"
+				instantiator="group: sword; on: click; mixin: voxel-sword parent-to-right-hand"
+				position="1.5 2 0">
+			</a-entity>
 				</a-scene>
 
 				<script>
