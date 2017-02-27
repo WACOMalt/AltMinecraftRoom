@@ -33,13 +33,46 @@
 						<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
 						<a-asset-item id="sword" src="./assets/sword.dae"></a-asset-item>
 
-				<a-mixin id="voxel-sword"
-					collada-model="#sword" collapse-model
+				<a-asset-item id="helmet-obj" src="models/helmet.obj"></a-asset-item>
+				<a-asset-item id="helmet-mtl" src="models/helmet.mtl"></a-asset-item>
+				<a-asset-item id="voxel-helmet-obj" src="models/vhelmet.obj"></a-asset-item>
+				<a-asset-item id="voxel-helmet-mtl" src="models/vhelmet.mtl"></a-asset-item>
+				<a-asset-item id="armor-obj" src="models/armor.obj"></a-asset-item>
+				<a-asset-item id="armor-mtl" src="models/armor.mtl"></a-asset-item>
+				<a-asset-item id="voxel-armor-obj" src="models/varmor.obj"></a-asset-item>
+				<a-asset-item id="voxel-armor-mtl" src="models/varmor.mtl"></a-asset-item>
+				<a-asset-item id="voxel-axe-obj" src="models/vaxe.obj"></a-asset-item>
+				<a-asset-item id="voxel-axe-mtl" src="models/vaxe.mtl"></a-asset-item>
+
+				<a-mixin id="helmet"
+					obj-model="obj: #helmet-obj; mtl: #helmet-mtl" collapse-model
+					scale="0.52 0.52 0.52"></a-mixin>
+				<a-mixin id="voxel-helmet"
+					obj-model="obj: #voxel-helmet-obj; mtl: #voxel-helmet-mtl" collapse-model
 					scale="1 1 1"></a-mixin>
-				<a-mixin id="parent-to-right-hand"
+				<a-mixin id="parent-to-head"
+					position="0 0.05 0.03"
+					n-skeleton-parent="part: head;"
+					sync sync-n-skeleton-parent></a-mixin>
+
+				<a-mixin id="metal-armor"
+					obj-model="obj: #armor-obj; mtl: #armor-mtl" collapse-model
+					scale="0.35 0.35 0.35"></a-mixin>
+				<a-mixin id="voxel-armor"
+					obj-model="obj: #voxel-armor-obj; mtl: #voxel-armor-mtl" collapse-model
+					scale="1 1 1"></a-mixin>
+				<a-mixin id="parent-to-chest"
+					position="0 0.35 0"
+					n-skeleton-parent="part: spine;"
+					sync sync-n-skeleton-parent></a-mixin>
+
+				<a-mixin id="voxel-axe"
+					obj-model="obj: #voxel-axe-obj; mtl: #voxel-axe-mtl" collapse-model
+					scale="1 1 1"></a-mixin>
+				<a-mixin id="parent-to-left-hand"
 					position="0 0 0"
 					rotation="0 0 0"
-					n-skeleton-parent="part: hand; side: right;"
+					n-skeleton-parent="part: hand; side: left;"
 					sync sync-n-skeleton-parent></a-mixin>
 					</a-assets>
 
@@ -47,11 +80,47 @@
 					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 0; autoplay: true; loop: true;"></a-entity>
 					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 0; autoplay: true; loop: true;"></a-entity>
 
-					<a-entity
-				id="voxel-sword-instantiator"
-				mixin="voxel-sword"
-				instantiator="group: sword; on: click; mixin: voxel-sword parent-to-right-hand"
-				position="1.5 4 0">
+					<!--
+			   Demonstrates an object that is attached to the skeleton and is synced across clients.
+			   Each user will see an axe attached to their left hand and all users will see each other
+			   with an axe in their hands.
+			-->
+			<a-entity
+				id="initial-synced-box"
+				one-per-user="mixin: voxel-axe parent-to-left-hand">
+			</a-entity>
+
+			<!--
+			   Demonstrates instantiators that instantiate synced objects attached to users' heads.
+			-->
+			<a-entity
+				id="voxel-helmet-instantiator"
+				mixin="voxel-helmet"
+				instantiator="on: click; mixin: voxel-helmet parent-to-head"
+				position="0 2 0">
+			</a-entity>
+			<a-entity
+				id="helmet-instantiator"
+				mixin="helmet"
+				instantiator="on: click; mixin: helmet parent-to-head"
+				position="0.8 2 0">
+			</a-entity>
+
+			<!--
+			   Demonstrates a separate 'armor' group of instantiators that instantiate synced objects attached to
+			   users' chests.
+			-->
+			<a-entity
+				id="voxel-armor-instantiator"
+				mixin="voxel-armor"
+				instantiator="group: armor; on: click; mixin: voxel-armor parent-to-chest"
+				position="1.5 2 0">
+			</a-entity>
+			<a-entity
+				id="metal-armor-instantiator"
+				mixin="metal-armor"
+				instantiator="group: armor; on: click; mixin: metal-armor parent-to-chest"
+				position="2.3 2 0">
 			</a-entity>
 				</a-scene>
 
