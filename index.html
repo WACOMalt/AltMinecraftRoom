@@ -32,6 +32,7 @@
 					<a-assets timeout="30000">
 						<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
 
+				<a-asset-item id="axe" src="assets/vaxe.dae"></a-asset-item>
 				<a-asset-item id="voxel-axe" src="assets/vaxe.obj"></a-asset-item>
 				<a-asset-item id="voxel-axe-mtl" src="assets/vaxe.mtl"></a-asset-item>
 
@@ -46,6 +47,7 @@
 					</a-assets>
 
 					<a-entity position="0 -2 -18" obj-model="obj: #collision-obj;" scale="1 1 1" rotation="0 180 0" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
+					<a-entity position="0 2 0" collada="axe;" scale="0.1 0.1 0.1" rotation="0 0 0" id="axe-a"></a-entity>
 					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 0; autoplay: true; loop: true;"></a-entity>
 					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 0; autoplay: true; loop: true;"></a-entity>
 
