@@ -41,7 +41,8 @@
 				<a-asset-item id="armor-mtl" src="assets/armor.mtl"></a-asset-item>
 				<a-asset-item id="voxel-armor-obj" src="assets/varmor.obj"></a-asset-item>
 				<a-asset-item id="voxel-armor-mtl" src="assets/varmor.mtl"></a-asset-item>
-				<a-asset-item id="voxel-axe" src="assets/sword.dae"></a-asset-item>
+				<a-asset-item id="voxel-axe" src="assets/vaxe.obj"></a-asset-item>
+				<a-asset-item id="voxel-axe-mtl" src="assets/vaxe.mtl"></a-asset-item>
 
 				<a-mixin id="helmet"
 					obj-model="obj: #helmet-obj; mtl: #helmet-mtl" collapse-model
@@ -66,28 +67,26 @@
 					sync sync-n-skeleton-parent></a-mixin>
 
 				<a-mixin id="voxel-axe"
-					collada="#voxel-axe" collapse-model
+					obj-model="obj: #voxel-axe-obj; mtl: #voxel-axe-mtl" collapse-model
 					scale="1 1 1"></a-mixin>
-				<a-mixin id="parent-to-left-hand"
+				<a-mixin id="parent-to-right-hand"
 					position="0 0 0"
 					rotation="0 0 0"
-					n-skeleton-parent="part: hand; side: left;"
+					n-skeleton-parent="part: hand; side: right;"
 					sync sync-n-skeleton-parent></a-mixin>
 					</a-assets>
 
 					<a-entity position="0 -2 -18" obj-model="obj: #collision-obj;" scale="1 1 1" rotation="0 180 0" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
 					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 0; autoplay: true; loop: true;"></a-entity>
 					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 0; autoplay: true; loop: true;"></a-entity>
-			<!--
-			   Demonstrates instantiators that instantiate synced objects attached to users' heads.
-			-->
+
 			<a-entity
 				id="voxel-axe-instantiator"
 				mixin="voxel-axe"
-				instantiator="on: click; mixin: voxel-axe parent-to-left-hand"
+				instantiator="on: click; mixin: voxel-axe parent-to-right-hand"
 				position="0 2 0">
 			</a-entity>
-
+			
 				</a-scene>
 
 				<script>
