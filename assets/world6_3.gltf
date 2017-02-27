@@ -121,6 +121,11 @@
     "extensionsUsed": [
         "KHR_materials_common"
     ],
+    "images": {
+        "image_world-RGBABig.png": {
+            "uri": "world-RGBABig.png"
+        }
+    },
     "materials": {
         "material_transparentTerrainMat.001": {
             "extensions": {
@@ -133,7 +138,7 @@
                             1.0,
                             1.0
                         ],
-                        "diffuse": "texture_file2",
+                        "diffuse": "texture_Texture",
                         "doubleSided": false,
                         "emission": [
                             0.0,
@@ -244,6 +249,14 @@
             "nodes": [
                 "node_scene_Scene_root"
             ]
+        }
+    },
+    "textures": {
+        "texture_Texture": {
+            "format": 6408,
+            "internalFormat": 6408,
+            "sampler": "sampler_default",
+            "source": "image_world-RGBABig.png"
         }
     }
 }
