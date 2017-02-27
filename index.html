@@ -10,38 +10,6 @@
 				<script src="./assets/altspace.js"></script>
 				<script src="./assets/jquery.min.js"></script>
 				<script src="./assets/UltimateLoader.js"></script>
-				<script>
-					THREE.Loader.Handlers.add(/jpe?g|png|gif|tga|bmp|dds/i, {
-						load: function(url) {
-							if(url && !url.startsWith('http') && !url.startsWith('//')) {
-								if(url.startsWith('/')) {
-									url = location.origin + url;
-								}
-								else {
-									var currPath = location.pathname;
-									if(!location.pathname.endsWith('/')) currPath = location.pathname.split('/').slice(0, -1).join('/') + '/';
-									url = location.origin + currPath + url;
-								}
-							}
-							return new THREE.Texture({ src: url });
-						}
-					});
-
-					function LoadTexture(url) {
-						if(url && !url.startsWith('http') && !url.startsWith('//')) {
-							if(url.startsWith('/')) {
-								url = location.origin + url;
-							}
-							else {
-								var currPath = location.pathname;
-								if(!location.pathname.endsWith('/')) currPath = location.pathname.split('/').slice(0, -1).join('/') + '/';
-								url = location.origin + currPath + url;
-							}
-						}
-
-						return new THREE.Texture({ src: url });
-					};
-				</script>
 			</head>
 
 			<body>
