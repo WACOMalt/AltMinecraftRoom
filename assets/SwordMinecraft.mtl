@@ -12,8 +12,8 @@ newmtl Material__29
 	Kd 0.588000 0.588000 0.588000
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
-	map_Ka assets\Blue5.png
-	map_Kd assets\Blue5.png
+	map_Ka Textures\Blue5.png
+	map_Kd Textures\Blue5.png
 
 newmtl Material__27
 	Ns 10.000000
@@ -26,8 +26,8 @@ newmtl Material__27
 	Kd 0.588000 0.588000 0.588000
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
-	map_Ka Blue3.png
-	map_Kd Blue3.png
+	map_Ka Textures\Blue3.png
+	map_Kd Textures\Blue3.png
 
 newmtl Material__28
 	Ns 10.000000
@@ -40,8 +40,8 @@ newmtl Material__28
 	Kd 0.588000 0.588000 0.588000
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
-	map_Ka Blue1.png
-	map_Kd Blue1.png
+	map_Ka Textures\Blue1.png
+	map_Kd Textures\Blue1.png
 
 newmtl Material__33
 	Ns 10.000000
@@ -54,8 +54,8 @@ newmtl Material__33
 	Kd 0.588000 0.588000 0.588000
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
-	map_Ka Wood3.png
-	map_Kd Wood3.png
+	map_Ka Textures\Wood3.png
+	map_Kd Textures\Wood3.png
 
 newmtl Material__32
 	Ns 10.000000
@@ -68,8 +68,8 @@ newmtl Material__32
 	Kd 0.588000 0.588000 0.588000
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
-	map_Ka Wood1.png
-	map_Kd Wood1.png
+	map_Ka Textures\Wood1.png
+	map_Kd Textures\Wood1.png
 
 newmtl Material__35
 	Ns 10.000000
@@ -82,8 +82,8 @@ newmtl Material__35
 	Kd 0.588000 0.588000 0.588000
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
-	map_Ka Wood4.png
-	map_Kd Wood4.png
+	map_Ka Textures\Wood4.png
+	map_Kd Textures\Wood4.png
 
 newmtl Material__34
 	Ns 10.000000
@@ -96,8 +96,8 @@ newmtl Material__34
 	Kd 0.588000 0.588000 0.588000
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.007843 0.007843 0.007843
-	map_Ka Wood2.png
-	map_Kd Wood2.png
+	map_Ka Textures\Wood2.png
+	map_Kd Textures\Wood2.png
 
 newmtl Material__31
 	Ns 10.000000
@@ -110,8 +110,8 @@ newmtl Material__31
 	Kd 0.588000 0.588000 0.588000
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
-	map_Ka Blue4.png
-	map_Kd Blue4.png
+	map_Ka Textures\Blue4.png
+	map_Kd Textures\Blue4.png
 
 newmtl Material__30
 	Ns 10.000000
@@ -124,5 +124,5 @@ newmtl Material__30
 	Kd 0.588000 0.588000 0.588000
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
-	map_Ka Blue6.png
-	map_Kd Blue6.png
+	map_Ka Textures\Blue6.png
+	map_Kd Textures\Blue6.png
