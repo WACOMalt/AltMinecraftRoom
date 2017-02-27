@@ -122,8 +122,8 @@
         "KHR_materials_common"
     ],
     "images": {
-        "image_file1": {
-            "uri": "world-RGBA.png"
+        "image_world-RGBABig.png": {
+            "uri": "world-RGBABig.png"
         }
     },
     "materials": {
@@ -251,7 +251,7 @@
             "format": 6408,
             "internalFormat": 6408,
             "sampler": "sampler_default",
-            "source": "image_file1"
+            "source": "image_world-RGBABig.png"
         }
     }
 }
