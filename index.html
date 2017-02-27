@@ -32,42 +32,12 @@
 					<a-assets timeout="30000">
 						<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
 
-				<a-asset-item id="helmet-obj" src="assets/helmet.obj"></a-asset-item>
-				<a-asset-item id="helmet-mtl" src="assets/helmet.mtl"></a-asset-item>
-				<a-asset-item id="voxel-helmet-obj" src="assets/vhelmet.obj"></a-asset-item>
-				<a-asset-item id="voxel-helmet-mtl" src="assets/vhelmet.mtl"></a-asset-item>
-				<a-asset-item id="armor-obj" src="assets/armor.obj"></a-asset-item>
-				<a-asset-item id="armor-mtl" src="assets/armor.mtl"></a-asset-item>
-				<a-asset-item id="voxel-armor-obj" src="assets/varmor.obj"></a-asset-item>
-				<a-asset-item id="voxel-armor-mtl" src="assets/varmor.mtl"></a-asset-item>
 				<a-asset-item id="voxel-axe" src="assets/vaxe.obj"></a-asset-item>
 				<a-asset-item id="voxel-axe-mtl" src="assets/vaxe.mtl"></a-asset-item>
 
-				<a-mixin id="helmet"
-					obj-model="obj: #helmet-obj; mtl: #helmet-mtl" collapse-model
-					scale="0.52 0.52 0.52"></a-mixin>
-				<a-mixin id="voxel-helmet"
-					obj-model="obj: #voxel-helmet-obj; mtl: #voxel-helmet-mtl" collapse-model
-					scale="1 1 1"></a-mixin>
-				<a-mixin id="parent-to-head"
-					position="0 0.05 0.03"
-					n-skeleton-parent="part: head;"
-					sync sync-n-skeleton-parent></a-mixin>
-
-				<a-mixin id="metal-armor"
-					obj-model="obj: #armor-obj; mtl: #armor-mtl" collapse-model
-					scale="0.35 0.35 0.35"></a-mixin>
-				<a-mixin id="voxel-armor"
-					obj-model="obj: #voxel-armor-obj; mtl: #voxel-armor-mtl" collapse-model
-					scale="1 1 1"></a-mixin>
-				<a-mixin id="parent-to-chest"
-					position="0 0.35 0"
-					n-skeleton-parent="part: spine;"
-					sync sync-n-skeleton-parent></a-mixin>
-
 				<a-mixin id="voxel-axe"
 					obj-model="obj: #voxel-axe-obj; mtl: #voxel-axe-mtl" collapse-model
-					scale="1 1 1"></a-mixin>
+					scale="0.1 0.1 0.1"></a-mixin>
 				<a-mixin id="parent-to-right-hand"
 					position="0 0 0"
 					rotation="0 0 0"
