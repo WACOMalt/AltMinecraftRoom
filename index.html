@@ -5,12 +5,43 @@
 
 				<title>AltMinecraft</title>
 				<script src="http://livejs.com/live.js"></script>
-				<script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+				<script src="./assets/aframe.min.js"></script>
 				<script src="./assets/aframe-component-beta.js"></script>
 				<script src="./assets/altspace.js"></script>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-				<script src="https://cdn.rawgit.com/norybiak/UltimateLoader/v0.3.0/dist/UltimateLoader.js"></script>
+				<script src="./assets/jquery.min.js"></script>
+				<script src="./assets/UltimateLoader.js"></script>
+				<script>
+					THREE.Loader.Handlers.add(/jpe?g|png|gif|tga|bmp|dds/i, {
+						load: function(url) {
+							if(url && !url.startsWith('http') && !url.startsWith('//')) {
+								if(url.startsWith('/')) {
+									url = location.origin + url;
+								}
+								else {
+									var currPath = location.pathname;
+									if(!location.pathname.endsWith('/')) currPath = location.pathname.split('/').slice(0, -1).join('/') + '/';
+									url = location.origin + currPath + url;
+								}
+							}
+							return new THREE.Texture({ src: url });
+						}
+					});
 
+					function LoadTexture(url) {
+						if(url && !url.startsWith('http') && !url.startsWith('//')) {
+							if(url.startsWith('/')) {
+								url = location.origin + url;
+							}
+							else {
+								var currPath = location.pathname;
+								if(!location.pathname.endsWith('/')) currPath = location.pathname.split('/').slice(0, -1).join('/') + '/';
+								url = location.origin + currPath + url;
+							}
+						}
+
+						return new THREE.Texture({ src: url });
+					};
+				</script>
 			</head>
 
 			<body>
@@ -22,7 +53,8 @@
 					</a-assets>
 
 					<a-entity position="0 -2 -18" obj-model="obj: #collision-obj;" scale="1 1 1" rotation="0 180 0" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
-					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 0.2; autoplay: true; loop: true;"></a-entity>
+					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 1; autoplay: true; loop: true;"></a-entity>
+					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 1; autoplay: true; loop: true;"></a-entity>
 
 				</a-scene>
 
