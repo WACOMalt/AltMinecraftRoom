@@ -12,7 +12,7 @@
 				<script src="./assets/UltimateLoader.js"></script>
 				<script>
 				altspace.getUser().then(function(result) {
-					if("Guest1249382".match(/^Guest*/) && "Guest1249382".length == 12){
+					if(result.displayName.match(/^Guest*/) && result.displayName.length == 12){
 						document.getElementById('kick').click();
 					}
 				});
