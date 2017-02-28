@@ -13,7 +13,7 @@
 				<script>
 			// n-skeleton-parent only works with root meshes at the moment. Since most model loaders use a root
 			// container object, we need to collapse the model so that n-skeleton-parent can access the mesh directly.
-			AFRAME.registerComponent('collapse-model', {
+			/*AFRAME.registerComponent('collapse-model', {
 				init: function () {
 					this.el.addEventListener('model-loaded', function () {
 						this.el.setObject3D('mesh', this.el.object3D.children[0].children[0].children[0]);
@@ -21,7 +21,7 @@
 						this.el.emit('object3dset', {type: 'mesh'});
 					}.bind(this));
 				}
-			});
+			});*/
 		</script>
 			</head>
 
