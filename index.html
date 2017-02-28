@@ -13,15 +13,15 @@
 				<script>
 			// n-skeleton-parent only works with root meshes at the moment. Since most model loaders use a root
 			// container object, we need to collapse the model so that n-skeleton-parent can access the mesh directly.
-			/*AFRAME.registerComponent('collapse-model', {
+			AFRAME.registerComponent('collapse-model', {
 				init: function () {
 					this.el.addEventListener('model-loaded', function () {
-						this.el.setObject3D('mesh', this.el.object3D.children[0].children[0].children[0]);
+						this.el.setObject3D('mesh', this.el.object3DMap.mesh.children[0]);
 						// setObject3D emits this event in a-frame 0.4.0
 						this.el.emit('object3dset', {type: 'mesh'});
 					}.bind(this));
 				}
-			});*/
+			});
 		</script>
 			</head>
 
@@ -40,7 +40,7 @@
 				<a-asset-item id="axe" src="assets/Pickaxe.dae"></a-asset-item>
 
 				<a-mixin id="voxel-sword"
-					collada-model="#sword" collapse-model
+					obk-model="obj: #sword; mtl: #sword-mtl" collapse-model
 					scale="0.02 0.02 0.02"></a-mixin>
 				<a-mixin id="parent-to-right-hand"
 					position="-0.25 -0.03 -0.10"
