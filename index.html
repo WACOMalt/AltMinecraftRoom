@@ -32,13 +32,15 @@
 					<a-assets timeout="30000">
 						<a-asset-item id="collision-obj" src="./assets/collision.obj"></a-asset-item>
 
-				<a-asset-item id="sword-obj" src="assets/SwordMinecraft.obj"></a-asset-item>
-				<a-asset-item id="sword-mtl" src="assets/SwordMinecraft.mtl"></a-asset-item>
+				<a-asset-item id="sword-obj" src="assets/sword.obj"></a-asset-item>
+				<a-asset-item id="sword-mtl" src="assets/sword.mtl"></a-asset-item>
+				<a-asset-item id="pick-obj" src="assets/Pickaxe.obj"></a-asset-item>
+				<a-asset-item id="pick-mtl" src="assets/Pickaxe.mtl"></a-asset-item>
 				<a-asset-item id="sword" src="assets/sword.dae"></a-asset-item>
 				<a-asset-item id="axe" src="assets/Pickaxe.dae"></a-asset-item>
 
 				<a-mixin id="voxel-sword"
-					collada-model="#sword" collapse-model
+					obj-model="obj: sword-obj; mtl: sword-mtl" collapse-model
 					scale="0.02 0.02 0.02"></a-mixin>
 				<a-mixin id="parent-to-right-hand"
 					position="-0.25 -0.03 -0.10"
@@ -48,7 +50,7 @@
 					</a-assets>
 
 					<a-mixin id="voxel-axe"
-					collada-model="#axe" collapse-model
+					obj-model="obj: pick-obj; mtl: pick-mtl" collapse-model
 					scale="0.02 0.02 0.02"></a-mixin>
 				<a-mixin id="parent-to-right-hand"
 					position="-0.25 -0.03 -0.10"
