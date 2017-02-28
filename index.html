@@ -16,6 +16,7 @@
 			AFRAME.registerComponent('collapse-model', {
 				init: function () {
 					this.el.addEventListener('model-loaded', function () {
+						console.log(this.el.object3dMap);
 						this.el.setObject3D('mesh', this.el.object3DMap.mesh.children[0]);
 						// setObject3D emits this event in a-frame 0.4.0
 						this.el.emit('object3dset', {type: 'mesh'});
@@ -40,7 +41,7 @@
 				<a-asset-item id="axe" src="assets/Pickaxe.dae"></a-asset-item>
 
 				<a-mixin id="voxel-sword"
-					obj-model="obj: #sword-obj; mtl: #sword-mtl" collapse-model
+					collada-model="#sword" collapse-model
 					scale="0.02 0.02 0.02"></a-mixin>
 				<a-mixin id="parent-to-right-hand"
 					position="-0.25 -0.03 -0.10"
@@ -50,7 +51,7 @@
 					</a-assets>
 
 					<a-mixin id="voxel-axe"
-					obj-model="obj: #pick-obj; mtl: #ick-mtl" collapse-model
+					collada-model="#axe" collapse-model
 					scale="0.02 0.02 0.02"></a-mixin>
 				<a-mixin id="parent-to-right-hand"
 					position="-0.25 -0.03 -0.10"
