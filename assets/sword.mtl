@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd swapuv.png
+map_Kd swordmap.png
 
 newmtl Material__28
 Ns 9.803922
@@ -21,7 +21,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd swapuv.png
+map_Kd swordmap.png
 
 newmtl Material__29
 Ns 9.803922
@@ -32,7 +32,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd swapuv.png
+map_Kd swordmap.png
 
 newmtl Material__30
 Ns 9.803922
@@ -43,7 +43,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd swapuv.png
+map_Kd swordmap.png
 
 newmtl Material__31
 Ns 9.803922
@@ -54,7 +54,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd swapuv.png
+map_Kd swordmap.png
 
 newmtl Material__32
 Ns 9.803922
@@ -65,7 +65,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd swapuv.png
+map_Kd swordmap.png
 
 newmtl Material__33
 Ns 9.803922
@@ -76,7 +76,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd swapuv.png
+map_Kd swordmap.png
 
 newmtl Material__34
 Ns 9.803922
@@ -87,7 +87,7 @@ Ke 0.007843 0.007843 0.007843
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd swapuv.png
+map_Kd swordmap.png
 
 newmtl Material__35
 Ns 9.803922
@@ -98,4 +98,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd swapuv.png
+map_Kd swordmap.png
