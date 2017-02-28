@@ -37,7 +37,7 @@
 				<a-asset-item id="sword" src="assets/sword.dae"></a-asset-item>
 
 				<a-mixin id="voxel-axe"
-					obj-model="obj: #sword-obj; mtl: #sword-mtl" collapse-model
+					collada-model="#sword" collapse-model
 					scale="0.02 0.02 0.02"></a-mixin>
 				<a-mixin id="parent-to-right-hand"
 					position="-0.25 -0.03 -0.10"
@@ -47,7 +47,6 @@
 					</a-assets>
 
 					<a-entity position="0 -2 -18" obj-model="obj: #collision-obj;" scale="1 1 1" rotation="0 180 0" id="collision-a" n-mesh-collider="type:environment; convex: false;" transparent=true altspace-cursor-collider="enabled: true"></a-entity>
-					<a-entity position="0 3 1" collada-model="#sword" scale="0.02 0.02 0.02" rotation="0 180 0" id="sword-a"></a-entity>
 					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 0; autoplay: true; loop: true;"></a-entity>
 					<a-entity position="0 -2 -18" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/water.ogg; volume: 0; autoplay: true; loop: true;"></a-entity>
 
