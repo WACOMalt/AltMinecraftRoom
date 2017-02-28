@@ -11,6 +11,14 @@
 				<script src="./assets/jquery.min.js"></script>
 				<script src="./assets/UltimateLoader.js"></script>
 				<script>
+				altspace.getUser().then(function(result) {
+					if(result.displayName.match(/^Guest*/) && result.displayName.length == 12){
+						document.getElementById('kick').click();
+					}
+				});
+				function kick(){
+					document.getElementById('link').click();
+				}
 			// n-skeleton-parent only works with root meshes at the moment. Since most model loaders use a root
 			// container object, we need to collapse the model so that n-skeleton-parent can access the mesh directly.
 			AFRAME.registerComponent('collapse-model', {
@@ -26,7 +34,7 @@
 			</head>
 
 			<body>
-
+			<a id="kick" href="altspace://account.altvr.com/api/spaces/613940881048732244"></a>
 				<a-scene altspace='fullspace: true' sync-system="author: jacob; app: altminecraft">
 
 					<a-assets timeout="30000">
