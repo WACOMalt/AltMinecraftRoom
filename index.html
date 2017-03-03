@@ -27,6 +27,42 @@
 					}.bind(this));
 				}
 			});
+
+			AFRAME.registerComponent('open-close-door-1', {
+				schema: {},
+				init: function(){
+					var self = this;
+					self.el.object3D.addEventListener('cursordown', function(){
+						if(self.el.getAttribute('rotation').y){
+							self.el.setAttribute('rotation', '0 90 0');
+							var open1 = document.querySelector('#open1');
+		            		open1.components['n-sound'].playSound();
+						} else {
+							self.el.setAttribute('rotation', '0 0 0');
+							var open1 = document.querySelector('#close1');
+		            		open1.components['n-sound'].playSound();
+						}
+					});
+				}
+			});
+
+			AFRAME.registerComponent('open-close-door-2', {
+				schema: {},
+				init: function(){
+					var self = this;
+					self.el.object3D.addEventListener('cursordown', function(){
+						if(self.el.getAttribute('rotation').y){
+							self.el.setAttribute('rotation', '0 -90 0');
+							var open1 = document.querySelector('#open2');
+		            		open1.components['n-sound'].playSound();
+						} else {
+							self.el.setAttribute('rotation', '0 0 0');
+							var open1 = document.querySelector('#close2');
+		            		open1.components['n-sound'].playSound();
+						}
+					});
+				}
+			});
 		</script>
 			</head>
 
@@ -81,9 +117,9 @@
 					<a-entity position="1 -3.1875 -13" id="open2" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/open.ogg; volume: 0.5; autoplay: false; loop: false;" sync sync-n-sound></a-entity>
 					<a-entity position="1 -3.1875 -13" id="close2" n-sound="src: http://minecraft.jacobralph.org/assets/sounds/close.ogg; volume: 0.5; autoplay: false; loop: false;" sync sync-n-sound></a-entity>
 
-					<a-entity position="0 -2 -18" obj-model="obj: #door1-obj; mtl: #door1-mtl" scale="1 1 1" rotation="0 180 0" id="door1-a" n-mesh-collider="type:environment; convex: false;" altspace-cursor-collider="enabled: true" sync sync-transform></a-entity>
+					<a-entity position="1 -2 -18" obj-model="obj: #door1-obj; mtl: #door1-mtl" scale="1 1 1" rotation="0 180 0" id="door1-a" n-mesh-collider="type:environment; convex: false;" altspace-cursor-collider="enabled: true" sync sync-transform open-close-door-1></a-entity>
 
-					<a-entity position="0 -2 -18" obj-model="obj: #door2-obj; mtl: #door2-mtl" scale="1 1 1" rotation="0 180 0" id="door2-a" n-mesh-collider="type:environment; convex: false;" altspace-cursor-collider="enabled: true" sync sync-transform></a-entity>
+					<a-entity position="1 -2 -18" obj-model="obj: #door2-obj; mtl: #door2-mtl" scale="1 1 1" rotation="0 180 0" id="door2-a" n-mesh-collider="type:environment; convex: false;" altspace-cursor-collider="enabled: true" sync sync-transform open-close-door-2></a-entity>
 
 
 			<a-entity
@@ -121,21 +157,6 @@
 
 					//Once the whole script has been read by altspace, do the model loader stuff
 					function onLoaded() {
-						var door_0 = document.querySelector('#door1-a').object3D;
-						door_0.userData.open = false;
-						door_0.userData.door = 0;
-						console.log(door_0);
-						door_0.addEventListener('cursordown', function(e){
-		                    open_door(door_0);
-		                });
-
-						var door_1 = document.querySelector('#door2-a').object3D;
-						door_1.userData.open = false;
-						door_1.userData.door = 0;
-						console.log(door_0);
-						door_1.addEventListener('cursordown', function(e){
-		                    open_door(door_1);
-		                });
 
 						for (var i = 0; i < models.length; i++)
 						{
@@ -168,33 +189,6 @@
 							obj.position.set(1, -2, -18);
 							sim.scene.add(obj);
 		                }
-		            }
-
-		            function open_door(door){
-		            	var door2 = door.children[0].children[0].children[0];
-		            	if(!door.userData.open){
-		            		if(!door.userData.door){
-		            			var open1 = document.querySelector('#open1');
-		            			open1.components['n-sound'].playSound();
-		            			door2.rotation.y = door2.rotation.y + (90 * (Math.PI/180));
-		            		} else {
-		            			var open2 = document.querySelector('#open2');
-		            			open2.components['n-sound'].playSound();
-		            			door2.rotation.y = door2.rotation.y - (90 * (Math.PI/180));
-		            		}
-		            		door.userData.open = true;
-		            	} else {
-		            		if(!door.userData.door){
-		            			var open1 = document.querySelector('#close2');
-		            			open1.components['n-sound'].playSound();
-		            		} else {
-		            			var open2 = document.querySelector('#close2');
-		            			open2.components['n-sound'].playSound();
-		            		}
-		            		door2.rotation.y = 0;
-		            		door.userData.open = false;
-		            	}
-
 		            }
 
 		            // Build ultimateloader array
